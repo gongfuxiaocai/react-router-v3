@@ -4,7 +4,7 @@ const  menuData = [
         routes: [
             {
                 title: "首页",
-                route: '/index'
+                route: '/home/index'
             }
         ]
     },

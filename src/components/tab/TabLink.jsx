@@ -9,17 +9,25 @@ class TabLink extends Component{
     }
 
     render() {
-        const { dataSource, index } = this.props;
+        const { dataSource } = this.props;
         return(
-            <div className="_tab_link_box">
+            <div className="_tab">
                 {
-                    index !== 0
-                    ?
-                        <span className="_tab_link_cancel" onClick={ this.handleCloseLink.bind( this, dataSource.link ) }>×</span>
-                    :
-                        null
+                    dataSource.map( ( item, index ) => {
+                        return(
+                            <div className="_tab_link_box">
+                                {
+                                    index !== 0
+                                        ?
+                                        <span key={`span${index}`} className="_tab_link_cancel" onClick={ this.handleCloseLink.bind( this, item.link ) }>×</span>
+                                        :
+                                        null
+                                }
+                                <Link key={`link${index}`} className="_tab_link" activeClassName="_tab_link_active" to={ item.link }>{ item.text }</Link>
+                            </div>
+                        )
+                    } )
                 }
-                <Link className="_tab_link" activeClassName="_tab_link_active" to={ dataSource.link }>{ dataSource.text }</Link>
             </div>
         );
     }
