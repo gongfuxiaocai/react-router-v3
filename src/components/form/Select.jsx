@@ -12,7 +12,8 @@ class Select extends Component {
             dataSource: this.props.dataSource || this.props.children.map((child) => {
                 return {
                     value: child.props.value,
-                    content: child.props.children
+                    content: child.props.children,
+                    disabled: child.props.disabled
                 }
             }) || [],
             selected: this.props.selected || null,
@@ -59,6 +60,12 @@ class Select extends Component {
 
     handleSelect(val, ev) {
         ev.nativeEvent.stopImmediatePropagation();
+        const targetNode = ev.target;
+
+        const className = targetNode.getAttribute("class");
+        if(className && className.split(" ").indexOf("_select_disabled") >= 0) {
+            return false;
+        }
 
         const value = val;
         const name = this.props.name;
@@ -103,7 +110,7 @@ class Select extends Component {
         const className = classnames('_select_title', {
             '_select_disabled': disabled
         });
-
+        const { checkbox } = this.props;
         return (
             <div className="_select">
                 <p ref={ (selectTitle) => this.selectTitle = selectTitle } onClick={ this.handleTrigger } className={className}>{this.state.content}</p>
@@ -114,7 +121,16 @@ class Select extends Component {
                         {
                             dataSource.map( (opt, index) => {
                                 return (
-                                    <li key={index} onClick={this.handleSelect.bind(this, opt.value)}>{opt.content}</li>
+                                    <li key={index} onClick={this.handleSelect.bind(this, opt.value)} className={ opt.disabled ? '_select_disabled' : null }>
+                                        {
+                                            checkbox
+                                            ?
+                                            <span></span>
+                                            :
+                                            null
+                                        }
+                                        { opt.content }
+                                    </li>
                                 )
                             } )
                         }

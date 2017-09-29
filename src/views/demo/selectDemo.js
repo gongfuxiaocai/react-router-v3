@@ -32,7 +32,14 @@ class SelectDemo extends Component{
         const {dataSource} = this.state;
         return(
             <div className="abc">
-                <Select name="select" placeholder="请选择。。。" selected="select1" onChange={ this.handleChange } dataSource={ dataSource }></Select>
+                <Select name="select" placeholder="请选择。。。" selected="select1" onChange={ this.handleChange }>
+                    <option value="select1">我是select1</option>
+                    <option value="select2">我是select2</option>
+                    <option value="select3" disabled="disabled">我是select3</option>
+                    <option value="select4">我是select4</option>
+                    <option value="select5">我是select5</option>
+                    <option value="select6">我是select6</option>
+                </Select>
             </div>
         );
     }
