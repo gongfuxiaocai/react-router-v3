@@ -11,7 +11,7 @@ class TabLink extends Component{
     render() {
         const { dataSource } = this.props;
         return(
-            <div className="_tab">
+            <div className="_tab_link">
                 {
                     dataSource.map( ( item, index ) => {
                         return(
@@ -23,7 +23,7 @@ class TabLink extends Component{
                                         :
                                         null
                                 }
-                                <Link key={`link${index}`} className="_tab_link" activeClassName="_tab_link_active" to={ item.link }>{ item.text }</Link>
+                                <Link key={`link${index}`} className="_tab_link_list" activeClassName="_tab_link_active" to={ item.link }>{ item.text }</Link>
                             </div>
                         )
                     } )

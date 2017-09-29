@@ -1,4 +1,5 @@
 import TabLink from './TabLink';
-import Tab from './Tab';
+import Tabs from './Tabs';
+import TabList  from './TabList.jsx'
 
-export { TabLink, Tab };
+export { TabLink, Tabs, TabList };
