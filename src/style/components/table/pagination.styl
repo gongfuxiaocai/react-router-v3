@@ -1,0 +1,81 @@
+buttons(cursor)
+  display inline-block
+  vertical-align middle
+  width 28px
+  height 28px
+  margin-right 12px
+  line-height 28px
+  text-align center
+  border 1px #dfdfdf solid
+  cursor cursor
+  border-radius 2px
+  user-select none
+
+._pagination
+  ._pagination_prev
+  ._pagination_next
+    buttons(not-allowed)
+    background-color #efefef
+
+  ._pagination_has_prev
+  ._pagination_has_next
+    background-color #fff
+    cursor pointer
+    &:hover
+      color cornflowerblue
+
+  ._pagination_page
+    buttons(pointer)
+    &:hover
+      color cornflowerblue
+
+  ._pagination_ellipsis
+    buttons(default)
+
+  ._pagination_page_active
+    background-color: beige
+    &:hover
+      color #000
+
+  ._pagination_jump
+    display inline-block
+    vertical-align middle
+
+    ._pagination_jump_label
+      display inline-block
+      line-height 28px
+      margin 0 12px 0 24px
+
+    ._pagination_jump_value
+      width 48px
+      height 24px
+      vertical-align middle
+      outline none
+      border 1px #dfdfdf solid
+      border-radius 3px
+      text-align center
+
+    ._pagination_jump_content
+      display inline-block
+      line-height 28px
+      margin 0 12px
+      vertical-align middle
+
+    ._pagination_jump_button
+      height 28px
+      padding 0 12px
+      border 1px #dfdfdf solid
+      border-radius 3px
+      outline none
+      background-color #fff
+      &:hover
+        color: cornflowerblue
+
+  ._pagination_pageSize
+    display inline-block
+    width 96px
+    margin-left 24px
+    ._pagination_select
+      height 28px
+      line-height 28px
+      text-align center

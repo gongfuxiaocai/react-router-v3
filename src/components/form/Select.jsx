@@ -112,7 +112,7 @@ class Select extends Component {
         });
         const { checkbox } = this.props;
         return (
-            <div className="_select">
+            <div className={`_select ${this.props.className}`}>
                 <p ref={ (selectTitle) => this.selectTitle = selectTitle } onClick={ this.handleTrigger } className={className}>{this.state.content}</p>
                 {
                     showOptions
@@ -147,7 +147,8 @@ Select.PropTypes = {
     dataSource: PropTypes.array,
     selected: PropTypes.string,
     multiple: PropTypes.bool,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    className: PropTypes.string
 };
 
 export default Select;
